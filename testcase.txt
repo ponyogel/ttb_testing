@@ -1,0 +1,224 @@
+Test Case 1 – Open Transfer Flow from Home
+
+Test Case ID: MT_01
+Test Description: Verify that user can start the transfer flow from Home screen.
+
+Preconditions:
+1. User is logged in to the mobile banking application.
+
+Test Steps:
+1. Open the mobile banking app.
+2. From the Home screen, tap the Transfer entry point.
+
+Expected Result:
+1. App navigates to Select Transfer Methods screen, showing options:
+    - Transfer to Own Account
+    - Transfer to Other Account
+    - Transfer to PromptPay (Citizen ID / Mobile Phone)
+
+------------------------------------------------------------------------------------------------
+
+Test Case 2 – Successful Transfer to Own Account
+
+Test Case ID: MT_02
+Test Description: Verify successful money transfer to user’s own account.
+
+Preconditions:
+1. User is logged in.
+2. User has sufficient balance.
+
+Test Steps:
+1. From Home screen, start the transfer flow.
+2. On Select Transfer Methods, choose Transfer to Own Account.
+3. On Enter Details, select valid From and To accounts and input a valid Amount.
+4. Tap Next/Continue to proceed.
+5. On Review to Confirm Transaction, review transaction details and tap Confirm.
+
+Expected Result:
+1. On Enter Details, transaction data passes validation and user is navigated to the review screen.
+2. On Review to Confirm Transaction, transaction data is validated successfully.
+3. App navigates to Completed Screen and displays a message such as “Transaction is completed”, showing transaction reference details.
+
+------------------------------------------------------------------------------------------------
+
+Test Case 3 – Inline Validation Error on Own Account Transfer
+
+Test Case ID: MT_03
+Test Description: Verify inline error message when invalid data is entered for Own Account transfer.
+
+Preconditions:
+1. User is logged in.
+
+Test Steps:
+1. Start the transfer flow from Home.
+2. Select Transfer to Own Account.
+3. On Enter Details, select From and To accounts but enter an invalid Amount (e.g. zero, negative, or empty).
+4. Tap Next/Continue.
+
+Expected Result:
+1. Validate transaction data on Enter Details fails.
+2. User remains on the Enter Details screen.
+3. An inline error message is displayed near the Amount field explaining the issue (e.g. “Please enter a valid amount”).
+4. No navigation to the review screen and no transaction is performed.
+
+------------------------------------------------------------------------------------------------
+
+Test Case 4 – Backend Error on Own Account Transfer (Bottom Sheet Error)
+
+Test Case ID: MT_04
+Test Description: Verify bottom sheet error message when validation fails on the Review step for Own Account transfer.
+
+Preconditions:
+1. User is logged in.
+2. System is configured to simulate a validation failure during confirmation (e.g. insufficient balance detected at confirmation time).
+
+Test Steps:
+1. Start the transfer flow from Home.
+2. Select Transfer to Own Account.
+3. On Enter Details, select valid From/To accounts and a valid Amount.
+4. Tap Next/Continue to go to the review screen.
+5. On Review to Confirm Transaction, tap Confirm.
+
+Expected Result:
+1. Enter Details validation passes and user reaches Review screen.
+2. During Validate transaction data at the review step, validation fails.
+3. A bottom sheet error message is displayed (e.g. “Transaction failed – insufficient balance / technical error”).
+4. User remains on or is returned to an appropriate screen; transaction is not completed; no “Transaction is completed” screen is shown.
+
+------------------------------------------------------------------------------------------------
+
+Test Case 5 – Successful Transfer to Other Account
+
+Test Case ID: MT_05
+Test Description: Verify successful money transfer to another user’s account.
+
+Preconditions:
+1. User is logged in.
+2. Destination (other) account is valid and reachable.
+3. User has sufficient balance.
+
+Test Steps:
+1. Start the transfer flow from Home.
+2. Select Transfer to Other Account.
+3. On Enter Details, select valid From account, enter valid To account number and valid Amount.
+4. Tap Next/Continue.
+5. On Review to Confirm Transaction, verify details and tap Confirm.
+
+Expected Result:
+1. Enter Details validation passes.
+2. Review validation passes.
+3. App shows Completed Screen with message “Transaction is completed” and transaction details for the other account.
+
+------------------------------------------------------------------------------------------------
+
+Test Case 6 – Inline Validation Error for Other Account (Invalid Destination)
+
+Test Case ID: MT_06
+Test Description: Verify inline error message when invalid destination account is entered.
+
+Preconditions:
+1. User is logged in.
+
+Test Steps:
+1. Start the transfer flow from Home.
+2. Select Transfer to Other Account.
+3. On Enter Details, select a valid From account, enter an invalid To account (wrong format or non-existing), and a valid Amount.
+4. Tap Next/Continue.
+
+Expected Result:
+1. Validate transaction data at Enter Details fails.
+2. User remains on Enter Details screen.
+3. Inline error message is displayed near the To account field (e.g. “Invalid account number”).
+4. No navigation to the review or completed screens.
+
+------------------------------------------------------------------------------------------------
+
+Test Case 7 – Backend Error on Other Account Transfer (Bottom Sheet Error)
+
+Test Case ID: MT_07
+Test Description: Verify bottom sheet error message when validation fails at review step for Other Account transfer.
+
+Preconditions:
+1. User is logged in.
+2. System is configured to simulate failure at confirmation time (e.g. Other Account service unavailable).
+
+Test Steps:
+1. Start the transfer flow from Home.
+2. Select Transfer to Other Account.
+3. On Enter Details, select valid From account, enter valid To account number and valid Amount.
+4. On Review to Confirm Transaction, tap Confirm.
+
+Expected Result:
+1. Enter Details validation passes.
+2. Validate transaction data at Review step fails due to backend/service issue.
+3. A bottom sheet error message is displayed describing the failure.
+4. Transaction is not completed and Completed Screen is not shown.
+
+------------------------------------------------------------------------------------------------
+
+Test Case 8 – Successful PromptPay Transfer (Citizen ID / Mobile Phone)
+
+Test Case ID: MT_08
+Test Description: Verify successful money transfer using PromptPay (Citizen ID or Mobile Phone).
+
+Preconditions:
+1. User is logged in.
+2. PromptPay ID (Citizen ID or Mobile number) is registered and valid.
+3. User has sufficient balance.
+
+Test Steps:
+1. Start the transfer flow from Home.
+2. Select Transfer to PromptPay (Citizen ID / Mobile Phone).
+3. On Enter Details, enter a valid Citizen ID or Mobile Phone number and a valid Amount.
+4. Tap Next/Continue.
+5. On Review to Confirm Transaction, verify details and tap Confirm.
+
+Expected Result:
+1. Enter Details validation passes.
+2. Review validation passes.
+3. App displays Completed Screen with “Transaction is completed” and shows PromptPay receiver details.
+
+------------------------------------------------------------------------------------------------
+
+Test Case 9 – Inline Validation Error for PromptPay (Invalid ID or Amount)
+
+Test Case ID: MT_09
+Test Description: Verify inline error when invalid Citizen ID/Mobile or amount is entered for PromptPay.
+
+Preconditions:
+1. User is logged in.
+
+Test Steps:
+1. Start the transfer flow from Home.
+2. Select Transfer to PromptPay (Citizen ID / Mobile Phone).
+3. On Enter Details, enter an invalid Citizen ID / Mobile number (wrong length or format) and/or invalid Amount (zero/empty).
+4. Tap Next/Continue.
+
+Expected Result:
+1. Validate transaction data on Enter Details fails.
+2. User remains on Enter Details screen.
+3. Inline error message is displayed next to the invalid field(s) explaining the error.
+4. No review or completed screen is shown.
+
+------------------------------------------------------------------------------------------------
+
+Test Case 10 – Backend Error on PromptPay Transfer (Bottom Sheet Error)
+
+Test Case ID: MT_10
+Test Description: Verify bottom sheet error message when validation fails at review step for PromptPay transfer.
+
+Preconditions:
+1. User is logged in.
+2. System is configured to simulate failure at confirmation time (e.g. PromptPay service unavailable).
+
+Test Steps:
+1. Start the transfer flow from Home.
+2. Select Transfer to PromptPay (Citizen ID / Mobile Phone).
+3. On Enter Details, enter valid PromptPay ID and Amount and tap Next/Continue.
+4. On Review to Confirm Transaction, tap Confirm.
+
+Expected Result:
+1. Enter Details validation passes.
+2. Validate transaction data at Review step fails due to backend/service issue.
+3. A bottom sheet error message is displayed describing the failure.
+4. Transaction is not completed and Completed Screen is not shown.

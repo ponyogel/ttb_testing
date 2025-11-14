@@ -1,0 +1,31 @@
+Title: Unable to log in with valid username and password
+
+Module: Login / Authentication
+
+Environment:
+    - Application: <app name / version>
+    - Platform: <iOS / Android / Web + version>
+
+Preconditions:
+    - User account is active and not locked.
+    - Correct username and password are known.
+
+Steps to Reproduce:
+1. Open the application.
+2. Navigate to the Login screen.
+3. Enter a valid username.
+4. Enter the correct password for this username.
+5. Tap the Login / Sign in button.
+
+Actual Result:
+    - The application cannot log in to the system even though the entered username and password are correct.
+    - User remains on the login screen (no successful session created).
+
+Expected Result:
+    - The system should authenticate the user when a correct username and password are entered and navigate to the home/dashboard screen.
+
+Severity: High
+Priority: High
+
+Attachments:
+    - Screenshots or screen recording of the failed login attempt.

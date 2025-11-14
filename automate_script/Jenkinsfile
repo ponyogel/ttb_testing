@@ -1,0 +1,84 @@
+pipeline {
+    agent any
+    
+    parameters {
+        choice(
+            name: 'TEST_SUITE',
+            choices: ['all', 'api', 'web'],
+            description: 'Select which test suite to run'
+        )
+        choice(
+            name: 'BROWSER',
+            choices: ['chrome', 'electron', 'firefox', 'edge'],
+            description: 'Select browser for web tests'
+        )
+    }
+    
+    environment {
+        CYPRESS_CACHE_FOLDER = "${WORKSPACE}/.cypress-cache"
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out code...'
+                checkout scm
+            }
+        }
+        
+        stage('Install Dependencies') {
+            steps {
+                dir('automate_script') {
+                    echo 'Installing npm dependencies...'
+                    sh 'npm ci'
+                }
+            }
+        }
+        
+        stage('Run API Tests') {
+            when {
+                expression { params.TEST_SUITE == 'api' || params.TEST_SUITE == 'all' }
+            }
+            steps {
+                dir('automate_script') {
+                    echo 'Running API tests...'
+                    sh "npx cypress run --spec 'cypress/e2e/api/**/*.cy.ts' --browser ${params.BROWSER}"
+                }
+            }
+        }
+        
+        stage('Run Web Tests') {
+            when {
+                expression { params.TEST_SUITE == 'web' || params.TEST_SUITE == 'all' }
+            }
+            steps {
+                dir('automate_script') {
+                    echo 'Running Web tests...'
+                    sh "npx cypress run --spec 'cypress/e2e/web/**/*.cy.ts' --browser ${params.BROWSER}"
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            dir('automate_script') {
+                // Archive test results
+                archiveArtifacts artifacts: 'cypress/screenshots/**/*', allowEmptyArchive: true
+                archiveArtifacts artifacts: 'cypress/videos/**/*', allowEmptyArchive: true
+                
+                // Publish test results if using mochawesome or junit reporter
+                junit testResults: 'cypress/results/**/*.xml', allowEmptyResults: true
+            }
+        }
+        success {
+            echo 'Tests passed successfully!'
+        }
+        failure {
+            echo 'Tests failed. Check the artifacts for details.'
+        }
+        cleanup {
+            cleanWs()
+        }
+    }
+}

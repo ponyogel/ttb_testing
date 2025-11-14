@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.9.6 on darwin)" generated="2025-11-14T12:22:21.187538" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Minimal Todo" source="/Users/ponyo/Desktop/ttb_testing/minimal-todo-robot/test_minimal_todo.robot">
+<test id="s1-t1" name="TC_01 Open App And Verify Empty List" line="12">
+<kw name="Start Minimal Todo App" owner="func">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${APPIUM_SERVER}</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>app=${APP}</arg>
+<doc>Opens a new application to the given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2025-11-14T12:22:21.350566" elapsed="4.184358"/>
+</kw>
+<status status="PASS" start="2025-11-14T12:22:21.350106" elapsed="4.184960"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-14T12:22:30.535963" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-14T12:22:25.535486" elapsed="5.000658"/>
+</kw>
+<kw name="Verify Empty Todo List" owner="func">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:30.706103" level="INFO">xpath criteria: //android.widget.ImageView</msg>
+<arg>${EMPTY_ICON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-14T12:22:30.536867" elapsed="0.169308"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:30.736669" level="INFO">xpath criteria: //android.widget.TextView[@text="You don't have any todos"]</msg>
+<arg>${EMPTY_TEXT}</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-14T12:22:30.706299" elapsed="0.030435"/>
+</kw>
+<status status="PASS" start="2025-11-14T12:22:30.536537" elapsed="0.200260"/>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary">
+<doc>Closes the current application and the webdriver session.</doc>
+<status status="PASS" start="2025-11-14T12:22:30.736944" elapsed="0.191677"/>
+</kw>
+<doc>เปิดแอป Minimal Todo และตรวจว่าไม่มีรายการบนหน้าจอ</doc>
+<status status="PASS" start="2025-11-14T12:22:21.349248" elapsed="9.579768"/>
+</test>
+<test id="s1-t2" name="TC_02 Add New Todo And Verify In List" line="19">
+<kw name="Start Minimal Todo App" owner="func">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${APPIUM_SERVER}</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>app=${APP}</arg>
+<doc>Opens a new application to the given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2025-11-14T12:22:30.931765" elapsed="4.057728"/>
+</kw>
+<status status="PASS" start="2025-11-14T12:22:30.931301" elapsed="4.058373"/>
+</kw>
+<kw name="Verify Empty Todo List" owner="func">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:35.230092" level="INFO">xpath criteria: //android.widget.ImageView</msg>
+<arg>${EMPTY_ICON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-14T12:22:34.990230" elapsed="0.240264"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:35.277896" level="INFO">xpath criteria: //android.widget.TextView[@text="You don't have any todos"]</msg>
+<arg>${EMPTY_TEXT}</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-14T12:22:35.230831" elapsed="0.047233"/>
+</kw>
+<status status="PASS" start="2025-11-14T12:22:34.989954" elapsed="0.288272"/>
+</kw>
+<kw name="Add New Todo Item" owner="func">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:35.281394" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB'.</msg>
+<msg time="2025-11-14T12:22:36.664961" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB</msg>
+<arg>${FAB_ADD_TODO}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:35.280162" elapsed="1.384966"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:36.720016" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${INPUT_TODO_TITLE}</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-14T12:22:36.665452" elapsed="0.054894"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:36.723282" level="INFO">Typing text 'Buy milk' into text field 'id=com.avjindersinghsekhon.minimaltodo:id/userToDoEditText'</msg>
+<msg time="2025-11-14T12:22:36.766959" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${INPUT_TODO_TITLE}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:36.720693" elapsed="0.046633"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:36.770730" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton'.</msg>
+<msg time="2025-11-14T12:22:37.929892" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton</msg>
+<arg>${FAB_SAVE_TODO}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:36.767768" elapsed="1.162437"/>
+</kw>
+<arg>${TODO_TEXT}</arg>
+<status status="PASS" start="2025-11-14T12:22:35.279230" elapsed="2.651504"/>
+</kw>
+<kw name="Verify Todo Appears In List" owner="func">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:39.129171" level="INFO">xpath criteria: //android.widget.TextView[@text="Buy milk"]
+xpath criteria: //android.widget.TextView[@text="Buy milk"]</msg>
+<arg>${TODO_ITEM_XPATH}</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-14T12:22:37.932380" elapsed="1.197033"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Wait Until Element Does Not Exist">
+<msg time="2025-11-14T12:22:39.132501" level="FAIL">No keyword with name 'Wait Until Element Does Not Exist' found.</msg>
+<arg>${EMPTY_TEXT}</arg>
+<status status="FAIL" start="2025-11-14T12:22:39.132460" elapsed="0.000110">No keyword with name 'Wait Until Element Does Not Exist' found.</status>
+</kw>
+<arg>Wait Until Element Does Not Exist</arg>
+<arg>${EMPTY_TEXT}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-11-14T12:22:39.130135" elapsed="0.002493"/>
+</kw>
+<arg>${TODO_TEXT}</arg>
+<status status="PASS" start="2025-11-14T12:22:37.931521" elapsed="1.201153"/>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary">
+<doc>Closes the current application and the webdriver session.</doc>
+<status status="PASS" start="2025-11-14T12:22:39.132817" elapsed="0.198191"/>
+</kw>
+<doc>เพิ่ม todo ใหม่แล้วตรวจว่าขึ้นบนหน้าหลัก</doc>
+<status status="PASS" start="2025-11-14T12:22:30.929434" elapsed="8.402142"/>
+</test>
+<test id="s1-t3" name="TC_03 Edit Existing Todo And Verify Updated" line="27">
+<kw name="Start Minimal Todo App" owner="func">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${APPIUM_SERVER}</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>app=${APP}</arg>
+<doc>Opens a new application to the given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2025-11-14T12:22:39.335382" elapsed="3.818917"/>
+</kw>
+<status status="PASS" start="2025-11-14T12:22:39.334998" elapsed="3.819400"/>
+</kw>
+<kw name="Add New Todo Item" owner="func">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:43.155679" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB'.</msg>
+<msg time="2025-11-14T12:22:43.967760" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB</msg>
+<arg>${FAB_ADD_TODO}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:43.154853" elapsed="0.813188"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:45.126877" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText
+criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${INPUT_TODO_TITLE}</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-14T12:22:43.968988" elapsed="1.158052"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:45.130583" level="INFO">Typing text 'Buy milk' into text field 'id=com.avjindersinghsekhon.minimaltodo:id/userToDoEditText'</msg>
+<msg time="2025-11-14T12:22:45.183020" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${INPUT_TODO_TITLE}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:45.127462" elapsed="0.056312"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:45.186717" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton'.</msg>
+<msg time="2025-11-14T12:22:45.879659" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton</msg>
+<arg>${FAB_SAVE_TODO}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:45.184205" elapsed="0.695617"/>
+</kw>
+<arg>${OLD_TODO_TEXT}</arg>
+<status status="PASS" start="2025-11-14T12:22:43.154628" elapsed="2.725417"/>
+</kw>
+<kw name="Open Todo For Edit" owner="func">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-14T12:22:45.881684" level="INFO">${todo_locator} = xpath=//android.widget.TextView[@text="Buy milk"]</msg>
+<var>${todo_locator}</var>
+<arg>xpath=//android.widget.TextView[@text="${text}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-14T12:22:45.881298" elapsed="0.000424"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:47.039847" level="INFO">xpath criteria: //android.widget.TextView[@text="Buy milk"]</msg>
+<arg>${todo_locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-14T12:22:45.881843" elapsed="1.158870"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:47.044550" level="INFO">Clicking element 'xpath=//android.widget.TextView[@text="Buy milk"]'.</msg>
+<msg time="2025-11-14T12:22:48.213994" level="INFO">xpath criteria: //android.widget.TextView[@text="Buy milk"]</msg>
+<arg>${todo_locator}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:47.041577" elapsed="1.172972"/>
+</kw>
+<arg>${OLD_TODO_TEXT}</arg>
+<status status="PASS" start="2025-11-14T12:22:45.880571" elapsed="2.334160"/>
+</kw>
+<kw name="Edit Todo Title" owner="func">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:48.253944" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${INPUT_TODO_TITLE}</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-14T12:22:48.215806" elapsed="0.038223"/>
+</kw>
+<kw name="Clear Text" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:48.255229" level="INFO">Clear text field 'id=com.avjindersinghsekhon.minimaltodo:id/userToDoEditText'</msg>
+<msg time="2025-11-14T12:22:48.309691" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${INPUT_TODO_TITLE}</arg>
+<doc>Clears the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:48.254174" elapsed="0.055761"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:48.312987" level="INFO">Typing text 'Buy soy milk' into text field 'id=com.avjindersinghsekhon.minimaltodo:id/userToDoEditText'</msg>
+<msg time="2025-11-14T12:22:48.948554" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${INPUT_TODO_TITLE}</arg>
+<arg>${new_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:48.310267" elapsed="0.638446"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:48.951835" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton'.</msg>
+<msg time="2025-11-14T12:22:49.648731" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton</msg>
+<arg>${FAB_SAVE_TODO}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:48.949010" elapsed="0.699880"/>
+</kw>
+<arg>${NEW_TODO_TEXT}</arg>
+<status status="PASS" start="2025-11-14T12:22:48.215206" elapsed="1.433833"/>
+</kw>
+<kw name="Verify Todo Updated" owner="func">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-14T12:22:49.650876" level="INFO">${new_locator} = xpath=//android.widget.TextView[@text="Buy soy milk"]</msg>
+<var>${new_locator}</var>
+<arg>xpath=//android.widget.TextView[@text="${new_text}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-14T12:22:49.650432" elapsed="0.000501"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-14T12:22:49.651544" level="INFO">${old_locator} = xpath=//android.widget.TextView[@text="Buy milk"]</msg>
+<var>${old_locator}</var>
+<arg>xpath=//android.widget.TextView[@text="${old_text}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-14T12:22:49.651134" elapsed="0.000452"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:50.890864" level="INFO">xpath criteria: //android.widget.TextView[@text="Buy soy milk"]
+xpath criteria: //android.widget.TextView[@text="Buy soy milk"]</msg>
+<arg>${new_locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-14T12:22:49.651748" elapsed="1.239328"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Page Should Not Contain Element" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:50.921574" level="INFO">Current page does not contain element 'xpath=//android.widget.TextView[@text="Buy milk"]'.</msg>
+<msg time="2025-11-14T12:22:50.921663" level="INFO">xpath criteria: //android.widget.TextView[@text="Buy milk"]</msg>
+<arg>${old_locator}</arg>
+<doc>Verifies that the current page does not contain the element with the ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:50.892249" elapsed="0.030482"/>
+</kw>
+<arg>Page Should Not Contain Element</arg>
+<arg>${old_locator}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-11-14T12:22:50.891841" elapsed="0.030968"/>
+</kw>
+<arg>${OLD_TODO_TEXT}</arg>
+<arg>${NEW_TODO_TEXT}</arg>
+<status status="PASS" start="2025-11-14T12:22:49.649510" elapsed="1.273365"/>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary">
+<doc>Closes the current application and the webdriver session.</doc>
+<status status="PASS" start="2025-11-14T12:22:50.923056" elapsed="0.214826"/>
+</kw>
+<doc>เพิ่ม todo, แก้ไขชื่อ แล้วตรวจว่าชื่อใหม่แสดงใน list</doc>
+<status status="PASS" start="2025-11-14T12:22:39.332182" elapsed="11.806240"/>
+</test>
+<test id="s1-t4" name="TC_04 Delete Existing Todo And Verify Removed" line="36">
+<kw name="Start Minimal Todo App" owner="func">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${APPIUM_SERVER}</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>app=${APP}</arg>
+<doc>Opens a new application to the given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2025-11-14T12:22:51.141031" elapsed="3.792306"/>
+</kw>
+<status status="PASS" start="2025-11-14T12:22:51.140700" elapsed="3.792725"/>
+</kw>
+<kw name="Add New Todo Item" owner="func">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:54.934798" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB'.</msg>
+<msg time="2025-11-14T12:22:55.446302" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB</msg>
+<arg>${FAB_ADD_TODO}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:54.933851" elapsed="0.512608"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:56.945184" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText
+criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${INPUT_TODO_TITLE}</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-14T12:22:55.446882" elapsed="1.498597"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:56.948193" level="INFO">Typing text 'Temp todo to delete' into text field 'id=com.avjindersinghsekhon.minimaltodo:id/userToDoEditText'</msg>
+<msg time="2025-11-14T12:22:56.993555" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${INPUT_TODO_TITLE}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:56.946010" elapsed="0.048176"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:56.995916" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton'.</msg>
+<msg time="2025-11-14T12:22:57.676721" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton</msg>
+<arg>${FAB_SAVE_TODO}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:56.994531" elapsed="0.682322"/>
+</kw>
+<arg>${TODO_TO_DELETE}</arg>
+<status status="PASS" start="2025-11-14T12:22:54.933615" elapsed="2.743325"/>
+</kw>
+<kw name="Verify Todo Exists" owner="func">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-14T12:22:57.677822" level="INFO">${todo_locator} = xpath=//android.widget.TextView[@text="Temp todo to delete"]</msg>
+<var>${todo_locator}</var>
+<arg>xpath=//android.widget.TextView[@text="${text}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-14T12:22:57.677614" elapsed="0.000230"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:58.900729" level="INFO">xpath criteria: //android.widget.TextView[@text="Temp todo to delete"]</msg>
+<arg>${todo_locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-14T12:22:57.677927" elapsed="1.223490"/>
+</kw>
+<arg>${TODO_TO_DELETE}</arg>
+<status status="PASS" start="2025-11-14T12:22:57.677172" elapsed="1.225369"/>
+</kw>
+<kw name="Swipe Todo To Delete" owner="func">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-14T12:22:58.905216" level="INFO">${todo_locator} = xpath=//android.widget.TextView[@text="Temp todo to delete"]</msg>
+<var>${todo_locator}</var>
+<arg>xpath=//android.widget.TextView[@text="${text}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-14T12:22:58.904800" elapsed="0.000473"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:58.957733" level="INFO">xpath criteria: //android.widget.TextView[@text="Temp todo to delete"]</msg>
+<arg>${todo_locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-14T12:22:58.905475" elapsed="0.052343"/>
+</kw>
+<kw name="Get Element Location" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:59.011811" level="INFO">Element 'xpath=//android.widget.TextView[@text="Temp todo to delete"]' location: {'x': 270, 'y': 354} </msg>
+<msg time="2025-11-14T12:22:59.012000" level="INFO">xpath criteria: //android.widget.TextView[@text="Temp todo to delete"]</msg>
+<msg time="2025-11-14T12:22:59.012315" level="INFO">${loc} = {'x': 270, 'y': 354}</msg>
+<var>${loc}</var>
+<arg>${todo_locator}</arg>
+<doc>Returns the location of the element with the ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:58.957975" elapsed="0.054399"/>
+</kw>
+<kw name="Get Element Size" owner="AppiumLibrary">
+<msg time="2025-11-14T12:22:59.051787" level="INFO">Element 'xpath=//android.widget.TextView[@text="Temp todo to delete"]' size: {'height': 76, 'width': 1170} </msg>
+<msg time="2025-11-14T12:22:59.051869" level="INFO">xpath criteria: //android.widget.TextView[@text="Temp todo to delete"]</msg>
+<msg time="2025-11-14T12:22:59.051946" level="INFO">${size} = {'height': 76, 'width': 1170}</msg>
+<var>${size}</var>
+<arg>${todo_locator}</arg>
+<doc>Returns the size of the element with the ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:22:59.012542" elapsed="0.039420"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-11-14T12:22:59.052257" level="INFO">${x} = 270</msg>
+<var>${x}</var>
+<arg>${loc}</arg>
+<arg>x</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-11-14T12:22:59.052100" elapsed="0.000173"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-11-14T12:22:59.052437" level="INFO">${y} = 354</msg>
+<var>${y}</var>
+<arg>${loc}</arg>
+<arg>y</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-11-14T12:22:59.052338" elapsed="0.000115"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-11-14T12:22:59.052626" level="INFO">${width} = 1170</msg>
+<var>${width}</var>
+<arg>${size}</arg>
+<arg>width</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-11-14T12:22:59.052520" elapsed="0.000123"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-11-14T12:22:59.053817" level="INFO">${height} = 76</msg>
+<var>${height}</var>
+<arg>${size}</arg>
+<arg>height</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-11-14T12:22:59.053708" elapsed="0.000124"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-14T12:22:59.054097" level="INFO">${start_x} = 1206</msg>
+<var>${start_x}</var>
+<arg>int(${x} + ${width} * 0.8)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-14T12:22:59.053911" elapsed="0.000202"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-14T12:22:59.054303" level="INFO">${end_x} = 504</msg>
+<var>${end_x}</var>
+<arg>int(${x} + ${width} * 0.2)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-14T12:22:59.054178" elapsed="0.000140"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-14T12:22:59.054497" level="INFO">${center_y} = 392</msg>
+<var>${center_y}</var>
+<arg>int(${y} + ${height} / 2)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-14T12:22:59.054378" elapsed="0.000135"/>
+</kw>
+<kw name="Swipe" owner="AppiumLibrary">
+<arg>start_x=${start_x}</arg>
+<arg>start_y=${center_y}</arg>
+<arg>end_x=${end_x}</arg>
+<arg>end_y=${center_y}</arg>
+<doc>Swipes from one point to another point, for an optional ``duration``.</doc>
+<status status="PASS" start="2025-11-14T12:22:59.054569" elapsed="1.293074"/>
+</kw>
+<arg>${TODO_TO_DELETE}</arg>
+<status status="PASS" start="2025-11-14T12:22:58.903813" elapsed="1.444616"/>
+</kw>
+<kw name="Verify Todo Not Exists" owner="func">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-14T12:23:00.350072" level="INFO">${todo_locator} = xpath=//android.widget.TextView[@text="Temp todo to delete"]</msg>
+<var>${todo_locator}</var>
+<arg>xpath=//android.widget.TextView[@text="${text}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-14T12:23:00.349682" elapsed="0.010303"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Page Should Not Contain Element" owner="AppiumLibrary">
+<msg time="2025-11-14T12:23:01.344164" level="INFO">Current page does not contain element 'xpath=//android.widget.TextView[@text="Temp todo to delete"]'.</msg>
+<msg time="2025-11-14T12:23:01.344343" level="INFO">xpath criteria: //android.widget.TextView[@text="Temp todo to delete"]</msg>
+<arg>${todo_locator}</arg>
+<doc>Verifies that the current page does not contain the element with the ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:23:00.360769" elapsed="0.983650"/>
+</kw>
+<arg>Page Should Not Contain Element</arg>
+<arg>${todo_locator}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-11-14T12:23:00.360393" elapsed="0.984140"/>
+</kw>
+<arg>${TODO_TO_DELETE}</arg>
+<status status="PASS" start="2025-11-14T12:23:00.348901" elapsed="0.995745"/>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary">
+<doc>Closes the current application and the webdriver session.</doc>
+<status status="PASS" start="2025-11-14T12:23:01.344967" elapsed="0.268788"/>
+</kw>
+<doc>เพิ่ม todo ชั่วคราว, ลบออก และตรวจว่าหายจาก list</doc>
+<status status="PASS" start="2025-11-14T12:22:51.138931" elapsed="10.475340"/>
+</test>
+<kw name="Sleep" owner="BuiltIn" type="TEARDOWN">
+<msg time="2025-11-14T12:23:06.616257" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-14T12:23:01.615420" elapsed="5.001007"/>
+</kw>
+<status status="PASS" start="2025-11-14T12:22:21.188581" elapsed="45.427932"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Minimal Todo" id="s1" pass="4" fail="0" skip="0">Test Minimal Todo</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

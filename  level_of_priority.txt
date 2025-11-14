@@ -1,0 +1,9 @@
+Severity: Critical
+Reasoning:
+    - The user enters the correct PIN, but the system incorrectly validates it as wrong.
+    - After 3 attempts, the system locks the user’s PIN, preventing any further transactions.
+    - This affects a core banking function (transfer to other bank).
+
+Priority: Urgent
+Reasoning:
+    - The defect blocks users from transferring money externally, which is a primary business function in mobile banking.
